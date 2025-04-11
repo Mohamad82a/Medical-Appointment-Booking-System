@@ -33,7 +33,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.auth',
+    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -41,7 +43,7 @@ INSTALLED_APPS = [
 
     # my apps
     'account.apps.AccountConfig',
-
+    'reservation.apps.ReservationConfig',
     'phonenumber_field',
 
 ]
@@ -134,3 +136,25 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+
+AUTH_USER_MODEL = 'account.User'
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "minty",
+}
+
+JAZZMIN_SETTINGS = {
+    # Links to put along the top menu
+    "topmenu_links": [
+        # Url that gets reversed (Permissions can be added)
+        {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "Back to Site", "url": "/", "permissions": ["auth.view_user"]},
+    ],
+
+    'site_logo': "appoint_app/images/appoint-master-logo-jazzmin.png",
+    "welcome_sign": "Login, Admin!",
+    'site_header': "Appoint Master",
+    'site_brand': "Appoint Master",
+    'copyright': "Appoint Master",
+    "show_sidebar": True,
+}

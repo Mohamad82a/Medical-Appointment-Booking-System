@@ -51,6 +51,7 @@ class User(AbstractUser):
     first_name = models.CharField(max_length=50, blank=True, null=True)
     last_name = models.CharField(max_length=50, blank=True, null=True)
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES, default="")
+    melicode = models.CharField(max_length=10, null=True, blank=True)
     phone_number = PhoneNumberField(max_length=13, blank=True, null=True, unique=True)
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=50, unique=True)
